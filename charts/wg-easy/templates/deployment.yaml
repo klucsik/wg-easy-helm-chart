@@ -32,7 +32,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: {{ .Values.web.service.port }}
+              containerPort: {{ .Values.web.service.targetPort }}
               protocol: TCP
             - name: wireguard
               containerPort: {{ .Values.wireguard.service.port }}
@@ -51,11 +51,11 @@ spec:
             - name: PASSWORD
               value: "{{ .Values.web.plain_password }}"
             {{- end }}
-            {{- if .Values.web.service.port }}
+            {{- if .Values.web.service.targetPort }}
             - name: PORT
-              value: "{{ .Values.web.service.port }}"
+              value: "{{ .Values.web.service.targetPort }}"
             {{- end }}
-            {{- if .Values.wireguard.service.port }}
+            {{- if .Values.web.service.targetPort }}
             - name: WG_PORT
               value: "{{ .Values.wireguard.service.port }}"
             {{- end }}
