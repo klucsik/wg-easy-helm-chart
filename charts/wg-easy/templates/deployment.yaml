@@ -32,10 +32,10 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: "{{ .Values.web.service.port }}"
+              containerPort: {{ .Values.web.service.port }}
               protocol: TCP
             - name: wireguard
-              containerPort: "{{ .Values.wireguard.service.port }}"
+              containerPort: {{ .Values.wireguard.service.port }}
               protocol: UDP
           env:
             - name: WG_HOST
@@ -53,11 +53,11 @@ spec:
             {{- end }}
             {{- if .Values.web.service.port }}
             - name: PORT
-              value: "{{ .Values.web.service.port }}"
+              value: {{ .Values.web.service.port }}
             {{- end }}
             {{- if .Values.wireguard.service.port }}
             - name: WG_PORT
-              value: "{{ .Values.wireguard.service.port }}"
+              value: {{ .Values.wireguard.service.port }}
             {{- end }}
             {{- if .Values.wireguard.mtu }}
             - name: WG_MTU
