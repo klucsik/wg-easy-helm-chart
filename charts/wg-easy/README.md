@@ -19,6 +19,7 @@ The following table lists the configurable parameters of the Wg-easy chart and t
 | `wireguard.service.type` | Service Type to create for the Wireguard VPN service | `"ClusterIP"` |
 | `wireguard.service.port` | The UDP port for the Wireguard VPN service. | `51820` |
 | `wireguard.service.externalTrafficPolicy` | Wireguard Service externalTrafficPolicy | `Local` |
+| `wireguard.service.nodePort` | Wireguard Service nodePort if service.type is NodePort | `null` |
 | `wireguard.host` | The public hostname or IP address of your VPN server. Required. | `""` |
 | `wireguard.clientAddrRange` | Client IP address range. | `"10.8.0.x"` |
 | `wireguard.dns` | DNS server clients will use. | `"1.1.1.1"` |
