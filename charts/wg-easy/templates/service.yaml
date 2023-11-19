@@ -51,6 +51,9 @@ spec:
   ports:
     - port: {{ .Values.wireguard.service.port }}
       targetPort: {{ .Values.wireguard.service.targetPort }}
+      {{- if .Values.wireguard.service.nodePort }}
+      nodePort: {{ .Values.wireguard.service.nodePort }}
+      {{- end }}   
       protocol: UDP
       name: wireguard
   selector:

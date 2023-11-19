@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: weejewel/wg-easy
-  tag: 5
+  tag: 7
   pullPolicy: IfNotPresent
 
 web:
@@ -29,6 +29,7 @@ wireguard:
     # This port value should likely not be changed since wg-easy iptables dport is hard coded to 51820
     targetPort: 51820
     annotations: {}
+    nodePort: 51820 # Only used when service.type is NodePort
 
   # Wireguard host is required and used when creating client config
   host: ""
