@@ -11,8 +11,9 @@ image:
 
 web:
   # Set password.secretName if you want to set a web password
-  # password:
-  #   secretName: ""
+  # secret_password:
+  #   secretName: "" # If you want to use a Secret resource to store the password, use this, and set the password key to webpassword
+  # plain_password: "changeme" # If you just want to add the pass as plaintext, use this
   service:
     type: ClusterIP
     # Modify this port when wishing to change the web port the UI is accessible through
