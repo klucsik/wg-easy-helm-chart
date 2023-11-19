@@ -21,7 +21,7 @@ spec:
 {{- end }}
   ports:
     - port: {{ .Values.web.service.port }}
-      targetPort: {{ .Values.web.service.targetPort }}
+      targetPort: 51821
       protocol: TCP
       name: http
   selector:
@@ -50,7 +50,7 @@ spec:
 {{- end }}
   ports:
     - port: {{ .Values.wireguard.service.port }}
-      targetPort: {{ .Values.wireguard.service.targetPort }}
+      targetPort: 51820
       {{- if .Values.wireguard.service.nodePort }}
       nodePort: {{ .Values.wireguard.service.nodePort }}
       {{- end }}   
