@@ -78,6 +78,21 @@ spec:
             - name: WG_PERSISTENT_KEEPALIVE
               value: "{{ .Values.wireguard.persistentKeepalive }}"
             {{- end }}
+            {{- if .Values.wireguard.postUp_key }}
+            - name: WG_POST_UP
+              valueFrom:
+                configMapKeyRef:
+                  name: "{{ .Values.wireguard.scripts_configmap_name }}"
+                  key: "{{ .Values.wireguard.postUp_key }}"
+            {{- end }}
+            {{- if .Values.wireguard.postDown }}
+            - name: WG_POST_DOWN
+              valueFrom:
+                configMapKeyRef:
+                  name: "{{ .Values.wireguard.scripts_configmap_name }}"
+                  key: "{{ .Values.wireguard.postDown_key }}"
+            {{- end }}
+            #With configmaps
             {{- if .Values.wireguard.postUp }}
             - name: WG_POST_UP
               value: "{{ .Values.wireguard.postUp }}"
